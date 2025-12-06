@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <title>About Us | Drive-Well Academy</title>
+    <meta name="description" content="Learn about Drive-Well Academy - Bristol's most trusted driving school with 15+ years of experience.">
+    <meta name="keywords" content="driving school Bristol, driving lessons Bristol, DVSA approved, intensive driving course, automatic lessons, pass plus, BS1-BS16">
+    <meta name="author" content="Drive-Well Academy">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.drive-well-acdemy.com/">
+    <meta property="og:title" content="Drive-Well Academy | Bristol's Premier Driving School">
+    <meta property="og:description" content="Learn about Drive-Well Academy - Bristol's most trusted driving school with 15+ years of experience.">
+    <meta property="og:image" content="https://www.drive-well-acdemy.com/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.drive-well-acdemy.com/">
+    <meta property="twitter:title" content="Drive-Well Academy | Bristol's Premier Driving School">
+    <meta property="twitter:description" content="Learn about Drive-Well Academy - Bristol's most trusted driving school with 15+ years of experience.">
+    <meta property="twitter:image" content="https://www.drive-well-acdemy.com/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚗%3C/text%3E%3C/svg%3E">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.drive-well-acdemy.com/about.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "DrivingSchool",
+        "name": "Drive-Well Academy Ltd",
+        "identifier": {
+            "@type": "PropertyValue",
+            "name": "Companies House Registration Number",
+            "value": "15888729"
+        },
+        "description": "Bristol's premier driving school offering professional driving lessons across BS1-BS16. DVSA approved instructors with exceptional pass rates.",
+        "url": "https://www.drive-well-acdemy.com",
+        "telephone": "+447514377171",
+        "email": "info@drive-well-academy.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "48 Stapleton Road, St Judes",
+            "addressLocality": "Bristol",
+            "addressRegion": "South West England",
+            "postalCode": "BS5 0RA",
+            "addressCountry": "GB"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "51.4545",
+            "longitude": "-2.5879"
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": "Bristol"
+        },
+        "priceRange": "£80-£925",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "150"
+        },
+        "sameAs": [
+            "https://www.facebook.com/drivewellacademy",
+            "https://www.instagram.com/drivewellacademy",
+            "https://www.youtube.com/@drivewellacademy"
+        ],
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Beginner Lessons",
+                "price": "80",
+                "priceCurrency": "GBP",
+                "description": "Perfect starting point for new drivers with comprehensive foundation course."
+            },
+            {
+                "@type": "Offer",
+                "name": "Manual Lessons",
+                "price": "87",
+                "priceCurrency": "GBP",
+                "description": "Traditional manual transmission lessons. Weekdays £87/hour, Evenings & Weekends £90/hour."
+            },
+            {
+                "@type": "Offer",
+                "name": "Automatic Lessons",
+                "price": "90",
+                "priceCurrency": "GBP",
+                "description": "Modern automatic vehicles. Weekdays £90/hour, Evenings & Weekends £95/hour."
+            },
+            {
+                "@type": "Offer",
+                "name": "Refresher Course",
+                "price": "110",
+                "priceCurrency": "GBP",
+                "description": "Return to driving with confidence. Tailored for nervous drivers or those returning after a break."
+            },
+            {
+                "@type": "Offer",
+                "name": "Intensive Course",
+                "price": "899",
+                "priceCurrency": "GBP",
+                "description": "Accelerated learning for quick test success. From 20 hours intensive courses."
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="loader-text">DRIVE<span class="loader-accent">-WELL</span></span>
+                <span class="loader-subtitle">ACADEMY</span>
+            </div>
+            <div class="loader-progress">
+                <div class="loader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/447514377171" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+    </a>
+    
+    <!-- Cursor Effects -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+        <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">DRIVE<span class="accent">-WELL</span></span>
+                    <span class="logo-subtitle">ACADEMY</span>
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link magnetic-element">Home</a>
+                <a href="services.html" class="nav-link magnetic-element">Services</a>
+                <a href="about.html" class="nav-link magnetic-element">About</a>
+                <a href="gallery.html" class="nav-link magnetic-element">Gallery</a>
+                <a href="index.html#testimonials" class="nav-link magnetic-element">Reviews</a>
+                <a href="faq.html" class="nav-link magnetic-element">FAQ</a>
+                <a href="portal.html" class="nav-link magnetic-element">Student Portal</a>
+                <a href="policies.html" class="nav-link magnetic-element" role="menuitem" aria-label="Policies">Policies</a>
+                <a href="franchise.html" class="nav-link magnetic-element" role="menuitem" aria-label="Franchise">Franchise</a>
+                <a href="contact.html" class="nav-link cta-nav magnetic-element">Book Now</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-tag">Why Choose Us</span>
+                    <h2 class="section-title">Bristol's Most <span class="gradient-text">Trusted</span> Driving Academy</h2>
+                    
+                    <p class="about-lead">
+                        With over 15 years of excellence in driver education, Drive-Well Academy has become Bristol's premier choice for learners who demand the best.
+                    </p>
+                    
+                    <div class="seo-keywords-integration">
+                        <p class="seo-text">
+                            Whether you're searching for <strong>"driving lessons near me"</strong>, looking for <strong>"automatic driving lessons Bristol"</strong> or <strong>"manual driving lessons Bristol"</strong>, or need the <strong>"best driving instructor Bristol"</strong> — you've come to the right place.
+                        </p>
+                    </div>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>DVSA Approved Excellence</h4>
+                                <p>Fully qualified ADI instructors with advanced certifications in road safety engineering.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Complete Bristol Coverage</h4>
+                                <p>Serving all BS1-BS16 postcodes with local test route expertise and area-specific training.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>AI-Powered Learning</h4>
+                                <p>Revolutionary WhatsApp theory test bot with bilingual support for accelerated learning.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Community Impact</h4>
+                                <p>Proud supporter of road safety initiatives.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-stats-inline">
+                        <div class="inline-stat">
+                            <span class="inline-stat-value">89%</span>
+                            <span class="inline-stat-label">First-Time Pass Rate</span>
+                        </div>
+                        <div class="inline-stat">
+                            <span class="inline-stat-value">4.9★</span>
+                            <span class="inline-stat-label">Google Rating</span>
+                        </div>
+                        <div class="inline-stat">
+                            <span class="inline-stat-value">24/7</span>
+                            <span class="inline-stat-label">Support Available</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="visual-container">
+                        <div class="image-frame">
+                            <div class="frame-decoration"></div>
+                            <div class="instructor-card">
+                                <div class="card-image">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="card-info">
+                                    <h4>Jamal Mohamed</h4>
+                                    <p>Director & Lead Instructor</p>
+                                    <div class="instructor-badges">
+                                        <span class="badge">ADI Certified</span>
+                                        <span class="badge">15+ Years</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-elements">
+                            <div class="float-element element-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="float-element element-2">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="float-element element-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">DRIVE<span class="accent">-WELL</span></span>
+                        <span class="logo-subtitle">ACADEMY</span>
+                    </div>
+                    <p class="footer-desc">
+                        Bristol's premier driving school, committed to excellence in driver education since 2009.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/drivewellacademy" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/drivewellacademy" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@drivewellacademy" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Subscribe to our YouTube channel">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://wa.me/447514377171" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Message us on WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#testimonials">Reviews</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Theory Test Tips</a></li>
+                        <li><a href="#">Test Routes</a></li>
+                        <li><a href="https://wa.me/447514377171" target="_blank" rel="noopener noreferrer">WhatsApp Bot</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-certifications">
+                    <h4>Certifications</h4>
+                    <div class="cert-badges">
+                        <div class="cert-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>DVSA Approved</span>
+                        </div>
+                        <div class="cert-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Fully Insured</span>
+                        </div>
+                        <div class="cert-badge">
+                            <i class="fas fa-user-check"></i>
+                            <span>DBS Checked</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Drive-Well Academy. All rights reserved.</p>
+                <p></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="animations.js"></script>
+</body>
+</html>

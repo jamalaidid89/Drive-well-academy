@@ -1,0 +1,16 @@
+# robots.txt for Drive-Well Academy
+# https://www.drive-well-acdemy.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.drive-well-acdemy.com/sitemap.xml
+
+# Disallow admin or private areas (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Page</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #0f172a; color: white; }
+        .test { background: #1e293b; padding: 20px; margin: 10px 0; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Website Test</h1>
+    <div class="test">
+        <h2>File Check</h2>
+        <p>If you can see this, HTML is working.</p>
+    </div>
+    <div class="test">
+        <h2>JavaScript Test</h2>
+        <p id="js-test">JavaScript is loading...</p>
+        <script>
+            document.getElementById('js-test').textContent = '✅ JavaScript is working!';
+        </script>
+    </div>
+    <div class="test">
+        <h2>Links</h2>
+        <a href="index.html" style="color: #dc2626;">Go to Home</a> | 
+        <a href="franchise.html" style="color: #dc2626;">Go to Franchise</a>
+    </div>
+</body>
+</html>
