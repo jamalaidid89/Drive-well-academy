@@ -101,23 +101,15 @@
         </div>
     </div>
     <script>
-        // API key is stored securely on the server - don't put it here!
-        const SYSTEM_PROMPT = 'You are DW Assistant for Drive-Well Academy, Bristol UK. Phone: 07514 377 171. Email: info@drive-well-academy.com. Coverage: BS1-BS16. Offer manual and automatic. Standard lessons 2hrs, test day 2.5hrs. Average learner needs 40-50hrs. Cancellation: 48hrs free, 24-48hrs 50%, under 24hrs full. Franchise: 50 pounds/week. Be friendly, use emojis, create theory questions when asked.';
         let conversationHistory = [];
         let isProcessing = false;
         function askQuestion(q) { document.getElementById('userInput').value = q; sendMessage(); }
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
         function addMessage(content, isUser) {
             const ws = document.getElementById('welcomeScreen'); if (ws) ws.style.display = 'none';
             const c = document.getElementById('messagesContainer');
             const d = document.createElement('div');
             d.className = 'message ' + (isUser ? 'user' : 'bot');
-            const escapedContent = escapeHtml(content).replace(/\n/g,'<br>');
-            d.innerHTML = '<div class="message-avatar"><i class="fas ' + (isUser ? 'fa-user' : 'fa-car') + '"></i></div><div><div class="message-content">' + escapedContent + '</div><div class="message-time">' + new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}) + '</div></div>';
+            d.innerHTML = '<div class="message-avatar"><i class="fas ' + (isUser ? 'fa-user' : 'fa-car') + '"></i></div><div><div class="message-content">' + content.replace(/\n/g,'<br>') + '</div><div class="message-time">' + new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}) + '</div></div>';
             c.appendChild(d); c.scrollTop = c.scrollHeight;
         }
         function addTyping() {
@@ -138,72 +130,18 @@
             conversationHistory.push({ role: 'user', content: message });
             addTyping();
             try {
-                // Call secure serverless function (API key stored on server)
                 const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ messages: conversationHistory, systemPrompt: SYSTEM_PROMPT })
+                    body: JSON.stringify({ messages: conversationHistory })
                 });
-                
+                const data = await response.json();
                 removeTyping();
-                
-                // Check if response is ok before parsing
-                if (!response.ok) {
-                    let errorMsg = 'Server error occurred';
-                    try {
-                        const errorData = await response.json();
-                        errorMsg = errorData.error || `HTTP ${response.status}: ${response.statusText}`;
-                    } catch (e) {
-                        errorMsg = `HTTP ${response.status}: ${response.statusText}`;
-                    }
-                    addMessage('Sorry, I encountered an error: ' + errorMsg + '. Please call 07514 377 171 for assistance.', false);
-                    return;
-                }
-                
-                // Parse JSON response
-                let data;
-                try {
-                    data = await response.json();
-                } catch (e) {
-                    addMessage('Sorry, I received an invalid response from the server. Please call 07514 377 171 for assistance.', false);
-                    return;
-                }
-                
-                // Check for error in response data
-                if (data.error) {
-                    addMessage('Sorry, I encountered an error: ' + data.error + '. Please call 07514 377 171 for assistance.', false);
-                    return;
-                }
-                
-                // Handle successful response from Anthropic API
-                if (data.content && Array.isArray(data.content) && data.content.length > 0) {
-                    const textContent = data.content.find(c => c.type === 'text');
-                    if (textContent && textContent.text) {
-                        addMessage(textContent.text, false);
-                        conversationHistory.push({ role: 'assistant', content: textContent.text });
-                    } else {
-                        addMessage('Sorry, I received an unexpected response format. Please try again or call 07514 377 171.', false);
-                    }
-                } else {
-                    addMessage('Sorry, I didn\'t receive a valid response. Please try again or call 07514 377 171.', false);
-                }
-            } catch (e) { 
-                console.error('Error:', e);
-                removeTyping(); 
-                let errorMessage = 'Connection error occurred. ';
-                
-                // Check if running locally (file:// protocol)
-                if (window.location.protocol === 'file:') {
-                    errorMessage += 'This page needs to be hosted on a server (like Vercel) to work. The API endpoint cannot be accessed from a local file. ';
-                } else if (e.name === 'TypeError' && (e.message.includes('fetch') || e.message.includes('Failed to fetch'))) {
-                    errorMessage += 'Network error - the API endpoint may not be available. ';
-                } else {
-                    errorMessage += 'An unexpected error occurred. ';
-                }
-                
-                errorMessage += 'Make sure the API is deployed on Vercel and the API key is set. Call 07514 377 171 if the issue persists.';
-                addMessage(errorMessage, false); 
-            }
+                if (data.content && data.content[0]) {
+                    addMessage(data.content[0].text, false);
+                    conversationHistory.push({ role: 'assistant', content: data.content[0].text });
+                } else { addMessage('Sorry, please try again or call 07514 377 171.', false); }
+            } catch (e) { removeTyping(); addMessage('Connection error. Call 07514 377 171.', false); }
             isProcessing = false;
             document.getElementById('sendBtn').disabled = false;
             input.focus();
