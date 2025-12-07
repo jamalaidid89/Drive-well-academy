@@ -130,7 +130,7 @@
             conversationHistory.push({ role: 'user', content: message });
             addTyping();
             try {
-                const response = await fetch('/api/chat', {
+                const response = await fetch('https://drive-well-academy.vercel.app/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ messages: conversationHistory })
