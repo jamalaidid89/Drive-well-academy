@@ -2,19 +2,19 @@
 // This keeps your API key secure on the server side
 
 export default async function handler(req, res) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle preflight
+  // Handle preflight OPTIONS request
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
+  }
+
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
@@ -49,10 +49,22 @@ export default async function handler(req, res) {
     });
 
     if (!response.ok) {
-      const errorData = await response.text();
-      console.error('Anthropic API error:', errorData);
+      let errorMessage = 'Failed to get response from AI service';
+      try {
+        const errorText = await response.text();
+        try {
+          const errorData = JSON.parse(errorText);
+          errorMessage = errorData.error?.message || errorData.error || errorMessage;
+        } catch (e) {
+          // If not JSON, use the text as error message
+          errorMessage = errorText || errorMessage;
+        }
+        console.error('Anthropic API error:', errorText);
+      } catch (e) {
+        console.error('Error reading response:', e);
+      }
       return res.status(response.status).json({ 
-        error: 'Failed to get response from AI service' 
+        error: errorMessage 
       });
     }
 
